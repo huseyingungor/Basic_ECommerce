@@ -1,0 +1,26 @@
+﻿@model Basic_ECommerce.Web.Models.ProductListViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <table class="table table-responsive">
+        <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units in Stock</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.ProductList)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+                <td>
+                    <a class="btn btn-xs btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@item.ProductId">Add to Cart</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<product-list-pager current-category="@Model.CurrentCategory" current-page="@Model.CurrentPage" page-count="@Model.PageCount" page-size="@Model.PageSize"> </product-list-pager>

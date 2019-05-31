@@ -1,0 +1,13 @@
+﻿@model Basic_ECommerce.Web.Models.CategoryListViewModel
+
+<div class="list-group">
+    @foreach (var item in Model.Categories)
+    {
+        string itemClass = "list-group-item";
+        if (Model.CurrentCategory == item.CategoryId)
+        {
+            itemClass += " active";
+        }
+        <a href="/Product/Index?category=@item.CategoryId" class="@itemClass">@item.CategoryName</a>
+    }
+</div>

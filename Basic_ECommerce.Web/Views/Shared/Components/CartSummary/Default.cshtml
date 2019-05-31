@@ -1,0 +1,13 @@
+﻿@model Basic_ECommerce.Web.Models.CartSummaryViewModel
+
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+
+        <li>
+            <a class="dropdown-item" href="#">@item.Product.ProductName <span class="badge">@item.Quantity</span></a>
+        </li>
+    }
+
+    <div class="dropdown-divider"></div>
+</ul>
